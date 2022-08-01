@@ -27,9 +27,7 @@ export class ListeUserComponent implements OnInit {
       keyword: this.fb.control("")
     });
 
-
     this.utilisateur = this.utilisateurService.getUtilisateur();
-
 
   }
 
