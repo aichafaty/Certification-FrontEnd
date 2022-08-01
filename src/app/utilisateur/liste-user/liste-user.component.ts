@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilisateurService } from '../../service/utilisateur.service';
+import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {FormGroup } from '@angular/forms';
+import {FormBuilder} from "@angular/forms" ;
+
+
+
 // import * as url from "url";
 
 @Component({
@@ -8,15 +15,26 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./liste-user.component.css']
 })
 export class ListeUserComponent implements OnInit {
-     utilisateur:any;
-  constructor(private http:HttpClient) { }
+  utilisateur !: Observable<any>;
+  errorMessage!: string;
+  rechercheformGroup !: FormGroup;
 
-  ngOnInit(): void {
-    this.http.get("http://localhost:8083/utilisateur").subscribe(data=>{
-      this.utilisateur=data;
-    },error =>{
-      console.log(error);
-    })
+  constructor(private utilisateurService: UtilisateurService, private fb: FormBuilder) {
   }
 
+  ngOnInit(): void {
+    this.rechercheformGroup = this.fb.group({
+      keyword: this.fb.control("")
+    });
+
+
+    this.utilisateur = this.utilisateurService.getUtilisateur();
+
+
+  }
+
+  handleRechercheUtilisateur() {
+    let kw = this.rechercheformGroup?.value.keyword;
+    this.utilisateur = this.utilisateurService.rechercheUtilisateur(kw);
+  }
 }

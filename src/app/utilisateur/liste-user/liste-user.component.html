@@ -1,10 +1,22 @@
 
-<div class="col-md-3"></div>
-<div class="col-md-6">
+
+
   <div class="container mt-2" >
+<!--    <div>-->
+<!--      {{errorMessage | json}}-->
+<!--    </div>-->
     <div class="card" *ngIf="utilisateur">
       <div class="card-header">Liste des Utilisateurs</div>
       <div class="card-body" >
+        <form [formGroup]="rechercheformGroup" (ngSubmit)="handleRechercheUtilisateur()" >
+          {{this.rechercheformGroup.value | json}}
+          <div class="input-group">
+            <label class="input-group-text">Keyword :</label>
+            <input type="text" formControlName="keyword" class="form-control">
+            <button  class="btn btn-outline-success"><i class="bi bi-search"></i></button>
+
+          </div>
+        </form>
         <table class="table" >
           <thead>
           <tr>
@@ -13,21 +25,20 @@
             <th scope="col">Prenom</th>
             <th scope="col">Adresse</th>
             <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th scope="col">DateNaiss</th>
+<!--            <th scope="col">Password</th>-->
+<!--            <th scope="col">DateNaiss</th>-->
             <th scope="col">Phone</th>
             <th scope="col">Action</th>
           </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let u of utilisateur">
+            <tr *ngFor="let u of utilisateur | async">
               <td>{{u.id}}</td>
               <td>{{u.nom}}</td>
               <td>{{u.prenom}}</td>
               <td>{{u.adresse}}</td>
               <td>{{u.email}}</td>
-              <td>{{u.password}}</td>
-              <td>{{u.dateNaissance}}</td>
+<!--              <td>{{u.password}}</td>-->
               <td>{{u.telephone}}</td>
               <td>
 
@@ -42,6 +53,5 @@
     </div>
 
   </div>
-</div>
-<div class="col-md-3"></div>
+
 <br><br><br>
