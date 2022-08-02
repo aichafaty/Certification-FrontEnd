@@ -16,7 +16,7 @@ const routes:Routes=[
   {path:"menu",component:MenuComponent},
   {path:"utilisateurListe",component:ListeUserComponent},
   {path:"utilisateurAdd",component:AddUserComponent},
-
+  {path: "actualiser",component: ListeUserComponent}
 
 ];
 

@@ -42,7 +42,7 @@ export class ListeUserComponent implements OnInit {
   handleDeleteUtilisateur(u:number) {
     this.utilisateurService.deleteUtilisateur(u).subscribe(
       data=>{
-        this.router.navigate(['/utilisateurListe']);
+        this.router.navigate(['/actualiser']);
 
     });
 
