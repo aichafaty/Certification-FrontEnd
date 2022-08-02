@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilisateurService } from '../../service/utilisateur.service';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs'
+import { map } from 'rxjs/operators';
+import {Utilisateur} from '../../model/utilisateur.model';
+import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {FormGroup } from '@angular/forms';
 import {FormBuilder} from "@angular/forms" ;
@@ -19,7 +22,7 @@ export class ListeUserComponent implements OnInit {
   errorMessage!: string;
   rechercheformGroup !: FormGroup;
 
-  constructor(private utilisateurService: UtilisateurService, private fb: FormBuilder) {
+  constructor(private utilisateurService: UtilisateurService, private fb: FormBuilder,private router:Router) {
   }
 
   ngOnInit(): void {
@@ -34,5 +37,14 @@ export class ListeUserComponent implements OnInit {
   handleRechercheUtilisateur() {
     let kw = this.rechercheformGroup?.value.keyword;
     this.utilisateur = this.utilisateurService.rechercheUtilisateur(kw);
+  }
+
+  handleDeleteUtilisateur(u:number) {
+    this.utilisateurService.deleteUtilisateur(u).subscribe(
+      data=>{
+        this.router.navigate(['/utilisateurListe']);
+
+    });
+
   }
 }

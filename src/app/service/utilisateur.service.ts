@@ -23,4 +23,8 @@ export class UtilisateurService {
   public saveUtilisateur(utilisateur:UtilisateurService):Observable<Utilisateur>{
     return this.http.post<Utilisateur>(environment.bakendHost+"/utilisateur" ,utilisateur);
   }
+
+  public deleteUtilisateur(id:number):Observable<Utilisateur>{
+    return this.http.delete<Utilisateur>(environment.bakendHost+"/utilisateur/"+id);
+  }
 }
