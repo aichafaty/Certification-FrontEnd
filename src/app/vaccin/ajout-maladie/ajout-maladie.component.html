@@ -1,0 +1,25 @@
+<app-menu></app-menu>
+<div class="container mt-2" >
+  <div class="card  offset-3 ">
+    <div class="card-header">Ajout Maladie</div>
+    <div class="card-body" >
+      <form [formGroup]="ajoutMaladieFormGroup" (ngSubmit)="handleAjoutMaladie()">
+        <div class="mb-3">
+          <label class="form-label">NomMaladie</label>
+          <input type ="text" formControlName="nomMaladie" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" formControlName="description" class="form-control">
+        </div>
+        <button class="btn btn-success" [disabled]="ajoutMaladieFormGroup.invalid">Save</button>
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+<br><br><br>
+
+

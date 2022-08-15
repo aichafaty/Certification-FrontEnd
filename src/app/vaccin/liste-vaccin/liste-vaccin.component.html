@@ -1,0 +1,147 @@
+<app-menu></app-menu>
+
+  <!--    <div>-->
+  <!--      {{errorMessage | json}}-->
+  <!--    </div>-->
+<div class="container mt-2">
+  <div class="card  " >
+
+    <div class="card-header d-flex ">Liste des Vaccins</div>
+    <div class="p-2 bd-highlight">
+      <button type="button" class="btn btn-success " (click)="open(content)" data-bs-target="#exampleModal">
+        <i class="bi bi-plus-circle-dotted"></i>
+      </button>
+    </div>
+
+    <div class="card-body" >
+<!--      <form [formGroup]="rechercheformGroup" (ngSubmit)="handleRechercheUtilisateur()" >-->
+<!--        {{this.rechercheformGroup.value | json}}-->
+<!--        <div class="input-group">-->
+<!--          <label class="input-group-text">Keyword :</label>-->
+<!--          <input type="text" formControlName="keyword" class="form-control">-->
+<!--          <button  class="btn btn-outline-success"><i class="bi bi-search"></i></button>-->
+
+<!--        </div>-->
+<!--      </form>-->
+      <table class="table" >
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Libelle</th>
+          <th scope="col">Age</th>
+          <th scope="col">Effet Secondaire</th>
+          <th scope="col">Maladie corespondant</th>
+          <th scope="col">Utilisateur corespondant</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+       <tr *ngFor="let v of vaccins ">
+              <td>{{v.id}}</td>
+              <td>{{v.nomVaccin}}</td>
+              <td>{{v.age}}</td>
+              <td>{{v.effetSecondaire}}</td>
+              <td>{{v.maladies.nomMaladie}}</td>
+              <td>{{v.utilisateur.prenom}}</td>
+
+        <td>
+          <button  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal"  class="btn btn-outline-warning"><i class="bi bi-vector-pen"></i></button>
+          <button  class="btn btn-radio btn-outline-danger mx-3"><i class="bi bi-trash3"></i></button>
+
+      </td>
+      </tr>
+        </tbody>
+      </table>
+      <ng-template #content let-modal id="content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Ajout vaccins</h4>
+          <button type="button" class="btn-close btn-outline-danger" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="ajoutVaccinFormGroup" (ngSubmit)="handleAjoutVaccin()">
+
+              <div class="mb-3">
+                <label class="form-label">NomVaccin</label>
+                <input type ="text" formControlName="nomVaccin" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Ages</label>
+                <input type="text" formControlName="age" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">EffetSecondaire</label>
+                <input type="text" formControlName="effetSecondaire" class="form-control">
+              </div>
+              <div class="mb-3">
+                <select class="form-select"  name="maladies" id="maladies" formControlName="maladies">
+                  <option value="">Maladie Correspondant</option>
+                  <option *ngFor="let m of maladies" [ngValue]="m">{{m.nomMaladie}}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <select class="form-select"  name="utilisateur" id="utilisateur" formControlName="utilisateur">
+                  <option value="">Utilisateur Correspondant</option>
+                  <option *ngFor="let u of utilisateur" [ngValue]="u">{{u.prenom}}</option>
+                </select>
+              </div>
+              <button type="button" [disabled]="ajoutVaccinFormGroup.invalid" class="btn btn-outline-success" (click)="handleAjoutVaccin()">Save</button>
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" [disabled]="ajoutVaccinFormGroup.invalid" class="btn btn-outline-success" (click)="modal.close('Save click')">Save</button>
+        </div> -->
+      </ng-template>
+    </div>
+  </div>
+</div>
+  <br><br>
+
+
+
+
+
+
+  <!-- Modal -->
+
+<!-- <div class="col-m-5"> -->
+<!-- <div class="container mt-2" > -->
+  <!-- <div class="card  offset-6 ">
+    <div class="card-header">Ajout Vaccins</div>
+    <div class="card-body" >
+      <form >
+        <div class="mb-3">
+          <label class="form-label">NomVaccin</label>
+          <input type ="text" formControlName="nomVaccin" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Ages</label>
+          <input type="text" formControlName="age" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">EffetSecondaire</label>
+          <input type="text" formControlName="effetSecondaire" class="form-control">
+        </div>
+        <div class="mb-3">
+          <select class="form-select" name="maladie" id="" formControlName="maladie">
+            <option value="">Maladie Correspondant</option>
+            <option></option>
+          </select>
+        </div>
+
+
+        <button class="btn btn-success">Save</button>
+      </form>
+
+    </div>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+

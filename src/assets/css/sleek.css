@@ -2235,7 +2235,7 @@ textarea.form-control {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 5;
+
   display: none;
   max-width: 100%;
   padding: 0.25rem 0.5rem;
@@ -2341,7 +2341,7 @@ textarea.form-control {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 5;
+
   display: none;
   max-width: 100%;
   padding: 0.25rem 0.5rem;
@@ -5361,7 +5361,7 @@ a.badge-purple:focus, a.badge-purple.focus {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 2;
+  /* z-index: 2; */
   padding: 1.25rem 1.25rem;
   color: inherit;
 }
@@ -6026,7 +6026,7 @@ a.close.disabled {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1050;
+  /* z-index: 1050; */
   display: none;
   width: 100%;
   height: 100%;
@@ -6108,7 +6108,7 @@ a.close.disabled {
   content: none;
 }
 
-.modal-content {
+/* .modal-content {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -6119,13 +6119,13 @@ a.close.disabled {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   outline: 0;
-}
+} */
 
 .modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1040;
+  /* z-index: 1040; */
   width: 100vw;
   height: 100vh;
   background-color: #000;
@@ -6341,7 +6341,7 @@ a.close.disabled {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1060;
+  /* z-index: 1060; */
   display: block;
   max-width: 276px;
   font-family: "Roboto", sans-serif;
