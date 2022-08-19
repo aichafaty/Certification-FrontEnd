@@ -1,0 +1,176 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white" >
+  <img src="../../../assets/img/logCap.PNG" style="width: 70px;">
+
+</nav>
+<br><br>
+
+<!-- <div class="container mt-5 d-flex justify-content-center">
+
+  <div class="card p-3">
+
+      <div class="d-flex align-items-center">
+
+          <div class="image">
+             <img src="../../../assets/img/bebe.PNG" class="rounded" width="155" >
+           </div>
+
+            <div class="ml-3 w-100" >
+              <h4 class="mb-0 mt-0">Carnet de Sante</h4>
+                 <span>Enfant</span>
+                <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats" *ngFor="let c of carnets |async" >
+                    <div class="d-flex flex-column">
+                        <span class="articles">Numero</span>
+                        <span class="number1" formControlName="numeroCarnet">{{c.numeroCarnet}}</span>
+                     </div>
+
+                      <div class="d-flex flex-column">
+                          <span class="followers">Nom</span>
+                          <span class="number2">{{c.nomEnfant}}</span>
+                      </div>
+                      <div class="d-flex flex-column">
+                        <span class="rating">Prenom</span>
+                        <span class="number3">{{c.prenomEnfant}}</span>
+                      </div>
+                      <div class="d-flex flex-column">
+                        <span class="rating">DateN</span>
+                        <span class="number3">{{c.dateNaissance}}</span>
+                      </div>
+
+                </div>
+
+
+         <div class="button mt-2 d-flex flex-row align-items-center">
+            <button class="btn btn-sm btn-outline-success w-100">Detail</button>
+         </div>
+
+
+       </div>
+
+
+      </div>
+
+  </div>
+
+</div> -->
+<div class="container mt-2" >
+<div class="card" >
+  <div class="card-header">Liste des carnets</div>
+
+  <div class="card-body" >
+    <!--      <form [formGroup]="rechercheformGroup" (ngSubmit)="handleRechercheUtilisateur()" >-->
+    <!--        {{this.rechercheformGroup.value | json}}-->
+    <!--        <div class="input-group">-->
+    <!--          <label class="input-group-text">Keyword :</label>-->
+    <!--          <input type="text" formControlName="keyword" class="form-control">-->
+    <!--          <button  class="btn btn-outline-success"><i class="bi bi-search"></i></button>-->
+
+    <!--        </div>-->
+    <!--      </form>-->
+    <button type="button" class="btn btn-success " (click)="open(content)" data-bs-target="#exampleModal">
+      <i class="bi bi-plus-circle-dotted"></i>
+    </button><br><br>
+    <table class="table" >
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Numero</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">DateNaissance</th>
+        <th scope="col">LieuxNaissance</th>
+        <th scope="col">Poids</th>
+        <th scope="col">Sexe</th>
+        <th scope="col">Taille</th>
+        <th scope="col">Parent </th>
+
+
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+              <tr *ngFor="let c of carnets |async">
+                <td>{{c.id}}</td>
+                <td>{{c.numeroCarnet}}</td>
+                <td>{{c.nomEnfant}}</td>
+                <td>{{c.prenomEnfant}}</td>
+                <td>{{c.dateNaissance}}</td>
+                <td>{{c.lieuNaiss}}</td>
+                <td>{{c.poids}}</td>
+                <td>{{c.sexe}}</td>
+                <td>{{c.taille}}</td>
+                <td>{{c.utilisateur.prenom}}</td>
+
+
+                <td>
+
+                  <button   class="btn btn-radio btn-outline-danger mx-3"><i class="bi bi-trash3"></i></button>
+                  <button  class="btn btn-outline-dark"><i class="bi bi-plus-circle-dotted"></i></button>
+                </td>
+              </tr>
+      </tbody>
+    </table>
+    <ng-template #content let-modal id="content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Ajout Carnet</h4>
+        <button type="button" class="btn-close btn-outline-danger" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="ajoutCarnetFormGroup" (ngSubmit)="handleAjoutCarnet()">
+
+            <div class="mb-3">
+              <label class="form-label">Numero Carnet</label>
+              <input type ="text" formControlName="numeroCarnet" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">NomEnfant</label>
+              <input type="text" formControlName="nomEnfant" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">PrenomEnfant</label>
+              <input type="text" formControlName="prenomEnfant" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">DateNaiss</label>
+              <input type="date" formControlName="dateNaissance" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">LieuxNaissance</label>
+              <input type="text" formControlName="lieuNaiss" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Sexe</label>
+              <input type="text" formControlName="sexe" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Poids</label>
+              <input type="text" formControlName="poids" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Taille</label>
+              <input type="text" formControlName="taille" class="form-control">
+            </div>
+            <div class="mb-3">
+              <select class="form-select"  name="utilisateur" id="utilisateur" formControlName="utilisateur">
+                <option value="">Parent Correspondant</option>
+                <option *ngFor="let u of utilisateur" [ngValue]="u">{{u.prenom}}</option>
+              </select>
+            </div>
+
+            <!-- <div class="mb-3">
+              <select class="form-select"  name="utilisateur" id="utilisateur" formControlName="utilisateur">
+                <option value="">Utilisateur Correspondant</option>
+                <option *ngFor="let u of utilisateur" [ngValue]="u">{{u.prenom}}</option>
+              </select>
+            </div> -->
+            <button type="button"  class="btn btn-outline-success" (click)="handleAjoutCarnet()">Save</button>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" [disabled]="ajoutVaccinFormGroup.invalid" class="btn btn-outline-success" (click)="modal.close('Save click')">Save</button>
+      </div> -->
+    </ng-template>
+  </div>
+</div>
+
+</div>
+

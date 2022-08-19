@@ -9,7 +9,7 @@
       <div class="card-header">Liste des Utilisateurs</div>
       <div class="card-body" >
         <form [formGroup]="rechercheformGroup" (ngSubmit)="handleRechercheUtilisateur()" >
-          {{this.rechercheformGroup.value | json}}
+          <!-- {{this.rechercheformGroup.value | json}} -->
           <div class="input-group">
             <label class="input-group-text">Keyword :</label>
             <input type="text" formControlName="keyword" class="form-control">

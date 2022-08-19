@@ -17,6 +17,10 @@ import { ListeMaladieComponent } from './vaccin/liste-maladie/liste-maladie.comp
 import { AjoutMaladieComponent } from './vaccin/ajout-maladie/ajout-maladie.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
+import { ParentComponent } from './parent/parent.component';
+import { InfirmierComponent } from './infirmier/infirmier.component';
+import { AjoutCarnetComponent } from './parent/ajout-carnet/ajout-carnet.component';
+import { ListerCarnetComponent } from './parent/lister-carnet/lister-carnet.component';
 // import { NotificationComponent } from './notification/notification.component';
 
 
@@ -35,7 +39,14 @@ const routes:Routes=[
   {path: "maladieAjout",component: AjoutMaladieComponent},
 
 
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+
+  {path:"parent",component:ParentComponent},
+  {path:"listerCarnet",component:ListerCarnetComponent},
+  {path:"AjoutCarnet",component:AjoutCarnetComponent},
+
+  {path:"infirmier",component:InfirmierComponent},
+
 
 
 
@@ -57,6 +68,10 @@ const routes:Routes=[
     ListeMaladieComponent,
     AjoutMaladieComponent,
     LoginComponent,
+    ParentComponent,
+    InfirmierComponent,
+    AjoutCarnetComponent,
+    ListerCarnetComponent,
 
   ],
   imports: [

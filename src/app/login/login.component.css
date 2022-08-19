@@ -16,7 +16,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #4FDA8C;
+  color: #3CC78F;
 }
 
 /* BODY */
@@ -26,10 +26,10 @@ body {
   font: 16px/26px "Raleway", sans-serif;
   text-align: center;
   height: 100%;
-  background: -moz-linear-gradient(270deg, rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+  background: -moz-linear-gradient(270deg, rgba(34,46,64,1) 0%, #3CC78F 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(34,46,64,1)), color-stop(100%, rgba(81,195,184,1)));
-  background: -webkit-linear-gradient(270deg, rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
-  background: linear-gradient(180deg, rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+  background: -webkit-linear-gradient(270deg, rgba(34,46,64,1) 0%, #3CC78F 100%);
+  background: linear-gradient(180deg, rgba(34,46,64,1) 0%, #3CC78F 100%);
   overflow:hidden;
 }
 
@@ -134,7 +134,7 @@ clear: both;
   -moz-box-shadow: none;
   box-shadow: none;
   border-radius: 0;
-  border-top: 1px solid #4FC1B7;
+  border-top: 1px solid #3CC78F;
 }
 .user .actions {
   margin: 1em 0 0;
@@ -162,7 +162,7 @@ clear: both;
 .user .actions a:last-child {
   color: #fff;
   border-radius: 0 30px 30px 0;
-  background-color: #28A55F;
+  background-color: #3CC78F;
   background: -moz-linear-gradient(270deg, rgba(105,221,201,1) 0%, rgba(78,193,182,1) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(105,221,201,1)), color-stop(100%, rgba(78,193,182,1)));
   background: -webkit-linear-gradient(270deg, rgba(105,221,201,1) 0%, rgba(78,193,182,1) 100%);
@@ -269,16 +269,16 @@ clear: both;
   padding: .2em 3em;
   width: auto;
   display: block;
-  background-color: #28A55F;
+  background-color: #3CC78F;
   border: none;
   color: #fff;
   cursor: pointer;
   font-size: .8em;
   border-radius: 0px;
-  background: rgba(62,181,169,1) 0%;
+  background: #3CC78F;
 }
 .form-wrap form .button:hover {
-  background-color: #4FDA8C;
+  background-color: #3CC78F;
 }
 .recovery p.mssg {
   opacity: 0;
@@ -299,10 +299,10 @@ clear: both;
   margin: 0 auto;
   width: 100%;
   height: 40px;
-  background: -moz-linear-gradient(90deg, rgba(62,181,169,1) 0%, rgba(111,226,204,1) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(111,226,204,1)), color-stop(100%, rgba(62,181,169,1)));
-  background: -webkit-linear-gradient(90deg, rgba(62,181,169,1) 0%, rgba(111,226,204,1) 100%);
-  background: linear-gradient(0deg, rgba(62,181,169,1) 0%, rgba(111,226,204,1) 100%);
+  background: -moz-linear-gradient(90deg, #3CC78F , #3CC78F);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop #3CC78F, color-stop(100%, #3CC78F));
+  background: -webkit-linear-gradient#3CC78F 0%, #3CC78F;
+  background: linear-gradient(0deg, #3CC78F 0%, #3CC78F) 100%;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;

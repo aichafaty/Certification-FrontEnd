@@ -24,15 +24,15 @@ export class LoginComponent implements OnInit {
 
   handleRecupLogin(){
     if (this.recupFormGroup.value.user=="parent" && this.recupFormGroup.value.password =="passer" ){
-       this.route.navigate(['/utilisateurListe'])
+       this.route.navigate(['/parent'])
 
     }
     if (this.recupFormGroup.value.user=="infirmier" && this.recupFormGroup.value.password =="passer" ){
-      this.route.navigate(['/utilisateurAdd'])
+      this.route.navigate(['/infirmier'])
 
    }
    if (this.recupFormGroup.value.user=="admin" && this.recupFormGroup.value.password =="passer" ){
-    this.route.navigate(['/maladieListe'])
+    this.route.navigate(['/vaccinListe'])
 
  }
   }
