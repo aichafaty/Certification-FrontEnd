@@ -21,6 +21,10 @@ import { ParentComponent } from './parent/parent.component';
 import { InfirmierComponent } from './infirmier/infirmier.component';
 import { AjoutCarnetComponent } from './parent/ajout-carnet/ajout-carnet.component';
 import { ListerCarnetComponent } from './parent/lister-carnet/lister-carnet.component';
+import { AjoutVaccinationComponent } from './infirmier/ajout-vaccination/ajout-vaccination.component';
+import { ListerVaccinationComponent } from './infirmier/lister-vaccination/lister-vaccination.component';
+import { ListerRvComponent } from './infirmier/lister-rv/lister-rv.component';
+import { AjoutRvComponent } from './infirmier/ajout-rv/ajout-rv.component';
 // import { NotificationComponent } from './notification/notification.component';
 
 
@@ -46,6 +50,10 @@ const routes:Routes=[
   {path:"AjoutCarnet",component:AjoutCarnetComponent},
 
   {path:"infirmier",component:InfirmierComponent},
+  {path:"listerVaccination",component:ListerVaccinationComponent},
+  {path:"AjoutVaccination",component:AjoutVaccinationComponent},
+  {path:"ajoutRv",component:AjoutRvComponent},
+  {path:"listerRv",component:ListerRvComponent},
 
 
 
@@ -72,6 +80,10 @@ const routes:Routes=[
     InfirmierComponent,
     AjoutCarnetComponent,
     ListerCarnetComponent,
+    AjoutVaccinationComponent,
+    ListerVaccinationComponent,
+    ListerRvComponent,
+    AjoutRvComponent,
 
   ],
   imports: [

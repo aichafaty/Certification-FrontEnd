@@ -13,7 +13,7 @@ import { UtilisateurService } from 'src/app/service/utilisateur.service';
   styleUrls: ['./liste-vaccin.component.css']
 })
 export class ListeVaccinComponent implements OnInit {
- public vaccins : any
+ public vaccins : any;
  closeResult = '';
  ajoutVaccinFormGroup!:FormGroup;
  maladies:any;

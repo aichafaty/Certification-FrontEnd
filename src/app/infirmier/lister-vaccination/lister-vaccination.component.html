@@ -1,0 +1,116 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white" >
+  <img src="../../../assets/img/logCap.PNG" style="width: 70px;">
+
+  <form class="d-flex">
+    <button class="btn btn-outline-success " type="submit" style="position: relative ; left: 1400px;" routerLink="/infirmier">retour</button>
+  </form>
+</nav>
+<br><br>
+
+
+<div class="container ">
+  <div class="card"  >
+
+    <div class="card-header d-flex ">Liste des Vaccinations</div>
+
+
+    <div class="card-body" >
+<!--      <form [formGroup]="rechercheformGroup" (ngSubmit)="handleRechercheUtilisateur()" >-->
+<!--        {{this.rechercheformGroup.value | json}}-->
+<!--        <div class="input-group">-->
+<!--          <label class="input-group-text">Keyword :</label>-->
+<!--          <input type="text" formControlName="keyword" class="form-control">-->
+<!--          <button  class="btn btn-outline-success"><i class="bi bi-search"></i></button>-->
+
+<!--        </div>-->
+<!--      </form>-->
+        <button type="button" class="btn btn-success " (click)="open(content)" data-bs-target="#exampleModal">
+          <i class="bi bi-plus-circle-dotted"></i>
+        </button><br><br>
+      <table class="table" >
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">NumeroCarnet</th>
+          <th scope="col">Age</th>
+          <th scope="col">DateVaccination</th>
+          <th scope="col">Observation</th>
+
+          <th scope="col">Infirmier corespondant</th>
+          <th scope="col">NomVaccin</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let v of vaccinations ">
+                    <td>{{v.id}}</td>
+                    <td>{{v.carnet.numeroCarnet}}</td>
+                    <td>{{v.age}}</td>
+                    <td>{{v.dateVaccination}}</td>
+                    <td>{{v.observation}}</td>
+                    <td>{{v.utilisateur.prenom}}</td>
+                    <td>{{v.vaccins.nomVaccin}}</td>
+                    <td>
+                      <button  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal"  class="btn btn-outline-warning"><i class="bi bi-vector-pen"></i></button>
+                      <button  class="btn btn-radio btn-outline-danger mx-3"><i class="bi bi-trash3"></i></button>
+
+                    </td>
+            </tr>
+        </tbody>
+
+      </table>
+      <ng-template #content let-modal id="content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Ajout Vaccination</h4>
+          <button type="button" class="btn-close btn-outline-danger" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="ajoutVaccinationFormGroup" (ngSubmit)="handleAjoutVaccination()">
+
+            <div class="mb-3">
+              <select class="form-select"  name="carnet" id="carnet" formControlName="carnet">
+                <option value="">Numero Carnet</option>
+                <option *ngFor="let c of carnets" [ngValue]="c">{{c.numeroCarnet}}</option>
+              </select>
+            </div>
+              <div class="mb-3">
+                <label class="form-label">Ages</label>
+                <input type="text" formControlName="age" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Date de Vaccination</label>
+                <input type="date" formControlName="dateVaccination" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Observation</label>
+                <input type="text" formControlName="observation" class="form-control">
+              </div>
+              <div class="mb-3">
+                <select class="form-select"  name="utilisateur" id="utilisateur" formControlName="utilisateur">
+                  <option value="">Infirmier de garde </option>
+                  <option *ngFor="let u of utilisateur" [ngValue]="u">{{u.prenom}}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <select class="form-select"  name="vaccins" id="vaccins" formControlName="vaccins">
+                  <option value="">Vaccins a administrer</option>
+                  <option *ngFor="let v of vaccins" [ngValue]="v">{{v.nomVaccin}}</option>
+                </select>
+              </div>
+
+
+
+              <!-- <div class="mb-3">
+                <select class="form-select"  name="utilisateur" id="utilisateur" formControlName="utilisateur">
+                  <option value="">Utilisateur Correspondant</option>
+                  <option *ngFor="let u of utilisateur" [ngValue]="u">{{u.prenom}}</option>
+                </select>
+              </div> -->
+              <button type="button"  class="btn btn-outline-success" (click)="handleAjoutVaccination()">Save</button>
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" [disabled]="ajoutVaccinFormGroup.invalid" class="btn btn-outline-success" (click)="modal.close('Save click')">Save</button>
+        </div> -->
+      </ng-template>
+</div>
