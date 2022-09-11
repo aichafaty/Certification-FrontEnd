@@ -65,6 +65,17 @@ export class LoginComponent implements OnInit {
             (utilisateur:any)=>{
               this.login.setUtilisateur(utilisateur);
               console.log(utilisateur);
+              //redirection Admin,infirmier,parent
+              if(this.login.getUserRole()=='Admin'){
+                window.location.href='/menu';
+
+              }else if(this.login.getUserRole()=='Infirmier'){
+                window.location.href='/infirmier';
+              }else if(this.login.getUserRole()=='Parent'){
+                window.location.href='/parent';
+              }else{
+                  this.login.logout();
+              }
 
             }
           )

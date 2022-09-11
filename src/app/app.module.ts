@@ -45,7 +45,7 @@ const routes:Routes=[
   {path: "maladieAjout",component: AjoutMaladieComponent},
 
 
-  {path:"login",component:LoginComponent},
+  {path:"",component:LoginComponent},
 
   {path:"parent",component:ParentComponent},
   {path:"listerCarnet",component:ListerCarnetComponent},
