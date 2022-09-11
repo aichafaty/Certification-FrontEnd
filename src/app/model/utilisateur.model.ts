@@ -6,6 +6,7 @@ adresse:String;
 email:String;
 telephone:String;
 password:String;
-dateNaissane:Date;
+username:String;
+dateNaissance:Date;
 
 }

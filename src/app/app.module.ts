@@ -25,6 +25,8 @@ import { AjoutVaccinationComponent } from './infirmier/ajout-vaccination/ajout-v
 import { ListerVaccinationComponent } from './infirmier/lister-vaccination/lister-vaccination.component';
 import { ListerRvComponent } from './infirmier/lister-rv/lister-rv.component';
 import { AjoutRvComponent } from './infirmier/ajout-rv/ajout-rv.component';
+import { RvParentComponent } from './parent/rv-parent/rv-parent.component';
+import { authInterceptorProviders } from './service/auth_interceptor';
 // import { NotificationComponent } from './notification/notification.component';
 
 
@@ -48,6 +50,7 @@ const routes:Routes=[
   {path:"parent",component:ParentComponent},
   {path:"listerCarnet",component:ListerCarnetComponent},
   {path:"AjoutCarnet",component:AjoutCarnetComponent},
+  {path:"rvParent",component:RvParentComponent},
 
   {path:"infirmier",component:InfirmierComponent},
   {path:"listerVaccination",component:ListerVaccinationComponent},
@@ -84,6 +87,7 @@ const routes:Routes=[
     ListerVaccinationComponent,
     ListerRvComponent,
     AjoutRvComponent,
+    RvParentComponent,
 
   ],
   imports: [
@@ -95,7 +99,7 @@ const routes:Routes=[
     NgbModule
 
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
