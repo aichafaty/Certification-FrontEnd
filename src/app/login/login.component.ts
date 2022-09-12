@@ -86,6 +86,11 @@ export class LoginComponent implements OnInit {
         (error)=>{
           console.log("error");
           console.log(error);
+          Swal.fire({
+            title: 'Error!',
+            text: 'login ou mot de pass incorecte',
+            icon: 'error',
+          });
 
 
         });

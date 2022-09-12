@@ -27,11 +27,19 @@ import { ListerRvComponent } from './infirmier/lister-rv/lister-rv.component';
 import { AjoutRvComponent } from './infirmier/ajout-rv/ajout-rv.component';
 import { RvParentComponent } from './parent/rv-parent/rv-parent.component';
 import { authInterceptorProviders } from './service/auth_interceptor';
+
+
+import { ParentGuard } from './service/parent.guard';
+import { InfirmierGuard } from './service/infirmier.guard';
+import { AuthGuard } from './service/auth.guard';
 // import { NotificationComponent } from './notification/notification.component';
 
 
 const routes:Routes=[
-  {path:"menu",component:MenuComponent},
+  {path:"menu",
+  component:MenuComponent,
+  canActivate:[AuthGuard],
+},
 
   {path:"utilisateurListe",component:ListeUserComponent},
   {path:"utilisateurAdd",component:AddUserComponent},
@@ -45,14 +53,17 @@ const routes:Routes=[
   {path: "maladieAjout",component: AjoutMaladieComponent},
 
 
-  {path:"",component:LoginComponent},
+  {path:"login",component:LoginComponent},
 
-  {path:"parent",component:ParentComponent},
+  {path:"parent",component:ParentComponent, pathMatch: 'full',
+   canActivate:[ParentGuard] },
+
   {path:"listerCarnet",component:ListerCarnetComponent},
   {path:"AjoutCarnet",component:AjoutCarnetComponent},
   {path:"rvParent",component:RvParentComponent},
 
-  {path:"infirmier",component:InfirmierComponent},
+  {path:"infirmier",component:InfirmierComponent,
+canActivate:[InfirmierGuard]},
   {path:"listerVaccination",component:ListerVaccinationComponent},
   {path:"AjoutVaccination",component:AjoutVaccinationComponent},
   {path:"ajoutRv",component:AjoutRvComponent},
@@ -99,7 +110,7 @@ const routes:Routes=[
     NgbModule
 
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
