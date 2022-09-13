@@ -55,15 +55,16 @@ const routes:Routes=[
 
   {path:"login",component:LoginComponent},
 
-  {path:"parent",component:ParentComponent, pathMatch: 'full',
-   canActivate:[ParentGuard] },
+  {path:"parent",component:ParentComponent,
+   canActivate:[ParentGuard]},
 
   {path:"listerCarnet",component:ListerCarnetComponent},
   {path:"AjoutCarnet",component:AjoutCarnetComponent},
   {path:"rvParent",component:RvParentComponent},
 
   {path:"infirmier",component:InfirmierComponent,
-canActivate:[InfirmierGuard]},
+     canActivate:[InfirmierGuard]},
+
   {path:"listerVaccination",component:ListerVaccinationComponent},
   {path:"AjoutVaccination",component:AjoutVaccinationComponent},
   {path:"ajoutRv",component:AjoutRvComponent},
@@ -110,7 +111,7 @@ canActivate:[InfirmierGuard]},
     NgbModule
 
   ],
-  providers: [authInterceptorProviders,AuthGuard],
+  providers: [authInterceptorProviders,AuthGuard,ParentGuard,InfirmierGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

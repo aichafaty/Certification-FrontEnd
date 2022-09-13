@@ -14,11 +14,13 @@ export class ParentGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-      if(this.login.isLoggedIn() && this.login.getUserRole()=="Parent"){
+      if(this.login.isLoggedIn() &&  this.login.getUserRole()=="Parent"){
         return true
       }
+      alert("authentifie toi")
       this.router.navigate(['login'])
+
+
         return false;
   }
 
